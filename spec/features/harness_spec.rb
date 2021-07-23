@@ -137,6 +137,8 @@ RSpec.describe 'Spec Harness' do
           expect(merchant[:attributes]).to have_key(:name)
         end
       end
+    end
+  end
 
   describe 'Relationships' do
     it 'can get items for a merchant' do
