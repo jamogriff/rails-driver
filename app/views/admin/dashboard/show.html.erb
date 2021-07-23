@@ -1,5 +1,6 @@
 <h2>Merchants</h2>
 
+<!-- Form is currently broken -->
 <%= form_with url: admin_merchants_search_path, class: "form-inline my-2 my-lg-0" do |form| %>
   <%= form.text_field :merchant_name, class: "mr-sm-2 form-control", type: "search", placeholder: "merchant name" %>
   <%= form.submit "Search for Merchants", class: "btn btn-outline-success my-2 my-sm-0" %>
@@ -15,12 +16,12 @@
 <ul id="top-merchants-revenue">
 </ul>
 
-<h3>Top 10 Merchants by Most Items Sold</h3>
-<ul id="top-merchants-items">
-</ul>
-
 <h3>Revenue for the past 7 days:</h3>
 <div id="recent-revenue">
+</div>
+
+<h3>Weekly Revenue:</h3>
+<div id="weekly-revenue">
 </div>
 
 <ul id="merchants">
@@ -28,6 +29,6 @@
 
 <script>
   loadMerchantsWithMostRevenue($('#top-merchants-revenue'))
-  loadMerchantsWithMostItemsSold($('#top-merchants-items'))
   loadRevenueForPastWeek($('#recent-revenue'))
+  loadWeeklyRevenue($('#weekly-revenue'))
 </script>
