@@ -46,7 +46,6 @@ function loadWeeklyRevenue(container) {
   let uri = `/api/v1/revenue/weekly`
   loadMultipleResources(uri, function(revenue) {
     let revenueElement = revenueListItem(revenue)
-	  debugger;
     container.append(revenueElement)
   })
 }
