@@ -15,12 +15,12 @@
 <ul id="top-merchants-revenue">
 </ul>
 
-<h3>Top 10 Merchants by Most Items Sold</h3>
-<ul id="top-merchants-items">
-</ul>
-
 <h3>Revenue for the past 7 days:</h3>
 <div id="recent-revenue">
+</div>
+
+<h3>Weekly Revenue:</h3>
+<div id="weekly-revenue">
 </div>
 
 <ul id="merchants">
@@ -28,6 +28,6 @@
 
 <script>
   loadMerchantsWithMostRevenue($('#top-merchants-revenue'))
-  loadMerchantsWithMostItemsSold($('#top-merchants-items'))
   loadRevenueForPastWeek($('#recent-revenue'))
+  loadWeeklyRevenue($('#weekly-revenue'))
 </script>
