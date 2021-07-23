@@ -27,6 +27,7 @@ function loadResource(resourceUri, callback) {
   })
 }
 
+// Currently broken
 function updateResource(resourceUri, data, callback) {
   let url = resourceUrl(resourceUri)
   fetch(url, {
@@ -42,6 +43,7 @@ function updateResource(resourceUri, data, callback) {
   })
 }
 
+// Currently broken
 function createResource(resourceUri, data, callback) {
   let url = resourceUrl(resourceUri)
   fetch(url, {
@@ -57,6 +59,7 @@ function createResource(resourceUri, data, callback) {
   })
 }
 
+// Currently broken
 function destroyResource(resourceUri, callback) {
   let url = resourceUrl(resourceUri)
   fetch(url, {

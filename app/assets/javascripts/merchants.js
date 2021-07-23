@@ -43,6 +43,8 @@ function loadMerchant(merchant_id, container) {
     container.append(merchant_element)
   })
 }
+
+// No endpoint for this
 function loadMerchantWithEdit(merchant_id, container) {
   let uri = `/api/v1/merchants/${merchant_id}`
   loadResource(uri, function(merchant){
@@ -55,6 +57,7 @@ function loadMerchantWithEdit(merchant_id, container) {
   })
 }
 
+// No endpoint for this
 function deleteMerchant(merchant_id) {
   let uri = `/api/v1/merchants/${merchant_id}`
   destroyResource(uri, function(merchant){
@@ -62,6 +65,7 @@ function deleteMerchant(merchant_id) {
   })
 }
 
+// No endpoint for this
 function addMerchantCreateHandler(button, input) {
   button.click(function(event){
     event.preventDefault()
