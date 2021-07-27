@@ -1,0 +1,10 @@
+<h2>Search Results for "<%= @search_term %>"</h2>
+<% if @result.present? %>
+  <strong>No results found.</strong>
+<% else %>
+<ul>
+  <% @items.each do |item| %>
+    <li><%= link_to item.name, item_path(item.id) %></li>
+  <% end %>
+</ul>
+<% end %>
