@@ -1,6 +1,11 @@
 <h1>Items</h1>
-<div id="items">
 
+<%= form_with url: items_search_path, class: "form-inline my-2 my-lg-0" do |form| %>
+  <%= form.text_field :item_name, class: "mr-sm-2 form-control", type: "search", placeholder: "item name" %>
+  <%= form.submit "Search for Items", class: "btn btn-outline-success my-2 my-sm-0" %>
+<% end %>
+
+<div id="items">
 </div>
 
 <script>
