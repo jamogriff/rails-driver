@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:index, :show]
+
+  namespace :items do
+    post "/search", to: "search#index"
+  end
+
   resources :merchants, only: [:index, :show] do
     resources :items, only: [:edit, :new]
   end
