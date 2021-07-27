@@ -1,0 +1,10 @@
+<%= render partial: 'form', locals: { header: 'Edit' } %>
+
+<!-- Adds this as an input so JavaScript adds it to attributes -->
+<input id="item-id" type="hidden" name="id" value="<%= @item_id %>">
+
+<script>
+  let array = document.querySelectorAll("input")
+  let button = $('#item-submit')
+  editItemUpdateHandler(<%= @item_id%>, button, array)
+</script>

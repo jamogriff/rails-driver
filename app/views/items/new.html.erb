@@ -1,0 +1,6 @@
+<%= render partial: 'form', locals: { header: 'Create' } %>
+<script>
+  let array = document.querySelectorAll("input")
+  let button = $('#item-submit')
+  addItemCreateHandler(button, array)
+</script>
