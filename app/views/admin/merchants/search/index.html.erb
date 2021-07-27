@@ -1,6 +1,8 @@
-<h1>Search Results for "<%= @search_term %>"</h1>
+<h2>Search Result for "<%= @search_term %>"</h2>
+<% if @result.present? %>
+  <strong>No results found.</strong>
+<% else %>
 <ul>
-  <% @merchants.each do |merchant| %>
-    <li><%= link_to merchant.name, admin_merchant_path(merchant.id) %></li>
-  <% end %>
+  <li><%= link_to @merchant.name, admin_merchant_path(@merchant.id) %></li>
 </ul>
+<% end %>
