@@ -1,6 +1,5 @@
 function railsEngineDomain() {
   return '<%= ENV['RAILS_ENGINE_DOMAIN'] %>'
-  
 }
 
 function resourceUrl(resourceUri) {
@@ -27,46 +26,56 @@ function loadResource(resourceUri, callback) {
   })
 }
 
-// Currently broken
-function updateResource(resourceUri, data, callback) {
+function updateResource(resourceUri, payload, callback) {
   let url = resourceUrl(resourceUri)
-  fetch(url, {
+  let params = {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data)
-  }).then(response => {
+    body: JSON.stringify(payload)
+  }
+  
+  fetch(url, params).then(response => {
+    if (!response.ok) {
+      throw new Error("Server-side error. Check your input.")
+   }
     return response.json()
-  }).then(function(json){
-    callback(json.data)
   })
+  .then(json => callback(json.data))
+  .catch(error => failureCallback(error))
 }
 
-// Currently broken
-function createResource(resourceUri, data, callback) {
+function createResource(resourceUri, payload, callback) {
   let url = resourceUrl(resourceUri)
-  fetch(url, {
+  let params = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data)
-  }).then(response => {
+    body: JSON.stringify(payload)
+  }
+  fetch(url, params).then(response => {
+    // throws error if response status from API is 4xx/5xx
+    if (!response.ok) {
+      throw new Error("Server-side error. Check your input")
+   }
     return response.json()
-  }).then(function(json){
-    callback(json.data)
   })
+   .then(json => callback(json.data))
+   .catch(error => failureCallback(error))
 }
 
-// Currently broken
 function destroyResource(resourceUri, callback) {
   let url = resourceUrl(resourceUri)
-  fetch(url, {
+  let params = {
     method: 'DELETE'
-  }).then(response => {
-    return response.json()
-  }).then(function(json){
-    callback(json.data)
+  }
+  
+  fetch(url, params).then(response => {
+    if (!response.ok) {
+      throw new Error("Server-side error. Try again later.")
+   }
+    return callback()
   })
 }
