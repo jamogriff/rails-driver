@@ -1,11 +1,7 @@
 # Rails Driver
+### A basic Javascript/Rails front-end that utilizes the [Rails Engine API](https://github.com/jamogriff/rails-engine)
 
-This application is part of the [Rails Engine](https://backend.turing.io/module3/projects/rails_engine) project for the Turing School of Software and Design.
-
-It includes
-
-1. A Test Suite for Rails Engine
-1. A Front End for Rails Engine
+This application was built to illustrate how the [Rails Engine API](https://github.com/jamogriff/rails-engine) project can be consumed. Most of the front-end functionality comes from raw Javascript with assistance from Rails. 
 
 ## Set Up
 
@@ -24,27 +20,22 @@ This last command should create the file `config/application.yml`. Open this fil
 ```
 RAILS_ENGINE_DOMAIN: http://localhost:3000
 ```
-
-## Test Suite
-
-`spec/features/harness_spec.rb` includes tests for the Rails Engine Project. In order for this test suite to run properly, you will need to:
-
-1. Make sure your Rails Engine Database is seeded with the original data from the provided csv files
-1. Make sure Rails Engine is serving from the url you specified in `config/application.yml` (`localhost:3000` if you copied
-the example `config/application.yml` above)
-
-## Front End
-
-You can also use the Front End to test Rails Engine. The Front End is an example of how your Rails Engine API could be consumed.
-
-First, you will need to enable Cross Origin Resource Sharing (CORS) on your Rails Engine. Do this using the [Rack CORS](https://github.com/cyu/rack-cors) gem. Folllow the instructions to get this set up (make sure you are following these instructions for Rails Engine, NOT Rails Driver).
+**Remember: you need to set-up [Rails Engine](https://github.com/jamogriff/rails-engine) in order to use Rails Driver. Rails Engine has [CORS](https://github.com/cyu/rack-cors) enabled to allow resource sharing for the purpose of using this front-end.**
 
 If you are running Rails Engine on `localhost:3000` as in the examples above, you will need to run Rails Driver on a different port, for example:
 
 ```
-rails s -p 3001
+rails s -p 4000
 ```
 
-Navigate your browser to `localhost:3001` to see Rails Driver in action.
+Navigate your browser to `localhost:400` to see Rails Driver in action. You can use the front-end to explore how Javascript interacts with the Rails Engine API. Having both applications running locally and seeing how HTTP requests and responses get passed back and forth is very informative in understanding the roles of back-end and front-end software development.
 
-If you are just starting the project, you should see an empty Item index.
+
+
+## Test Suite
+
+`spec/features/harness_spec.rb` includes tests for the Rails Engine roject. In order for this test suite to run properly, you will need to:
+
+1. Make sure your Rails Engine eatabase is seeded with the data provided in the `pg-dump` file and `db/schema.rb` is accurate.
+1. Ensure Rails Engine is serving from the url you specified in `config/application.yml` (`localhost:3000` if you copied
+the example `config/application.yml` above)
